@@ -15,5 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "markdown-it-obsidian": "^1.1.0"
   }
 }

@@ -1,9 +1,15 @@
 import { defineConfig } from 'vitepress'
+import obsidian from 'markdown-it-obsidian'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Vitepress Obsidian",
   description: "A VitePress Site",
+  markdown: {
+    config(md) {
+      md.use(obsidian())
+    },
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
