@@ -6,6 +6,7 @@ export default defineConfig({
   title: "Vitepress Obsidian",
   description: "A VitePress Site",
   markdown: {
+    breaks: true,
     config(md) {
       md.use(obsidian())
     },
