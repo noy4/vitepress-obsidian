@@ -7,6 +7,7 @@ import path from 'path'
 export default defineConfig({
   title: "Vitepress Obsidian",
   description: "A VitePress Site",
+  lastUpdated: true,
   markdown: {
     breaks: true,
     config(md) {
@@ -27,8 +28,7 @@ export default defineConfig({
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' },
           {
-            text: 'Notes',
-            link: '/notes/',
+            text: 'notes',
             collapsed: false,
             items: getSidebarItems('notes')
           },
