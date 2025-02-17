@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 import obsidian from 'markdown-it-obsidian'
+import fs from 'fs'
+import path from 'path'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -24,7 +26,12 @@ export default defineConfig({
         items: [
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' },
-          { text: 'Notes', link: '/notes/' },
+          {
+            text: 'Notes',
+            link: '/notes/',
+            collapsed: false,
+            items: getSidebarItems('notes')
+          },
         ]
       }
     ],
@@ -34,3 +41,22 @@ export default defineConfig({
     ]
   }
 })
+
+function getSidebarItems(dir: string) {
+  return fs.readdirSync(dir)
+    .filter(file => !file.startsWith('.'))
+    .map(file => {
+      const filePath = path.join(dir, file)
+      if (fs.statSync(filePath).isDirectory()) {
+        return {
+          text: file,
+          collapsed: true,
+          items: getSidebarItems(filePath)
+        }
+      }
+      return {
+        text: file.replace(/\.md$/, ''),
+        link: `/${filePath.replace(/\.md$/, '')}`
+      }
+    })
+}
