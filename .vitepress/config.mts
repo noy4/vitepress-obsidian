@@ -3,16 +3,20 @@ import obsidian from 'markdown-it-obsidian'
 import fs from 'fs'
 import path from 'path'
 
+const baseUrl = '/vitepress-obsidian/'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Vitepress Obsidian",
   description: "A VitePress Site",
-  base: '/vitepress-obsidian/',
+  base: baseUrl,
   lastUpdated: true,
   markdown: {
     breaks: true,
     config(md) {
-      md.use(obsidian())
+      md.use(obsidian({
+        baseUrl,
+      }))
     },
   },
   themeConfig: {
@@ -55,9 +59,13 @@ function getSidebarItems(dir: string) {
           items: getSidebarItems(filePath)
         }
       }
+
+      // vitepress base setting seems to be only for .md files
+      // for other file types (like .png), we need to set the base path manually
+      const basePath = /\.md$/.test(file) ? '/' : baseUrl
       return {
         text: file.replace(/\.md$/, ''),
-        link: `/${filePath.replace(/\.md$/, '')}`
+        link: `${basePath}${filePath.replace(/\.md$/, '')}`
       }
     })
 }
