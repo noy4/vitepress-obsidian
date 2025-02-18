@@ -7,6 +7,7 @@ import path from 'path'
 export default defineConfig({
   title: "Vitepress Obsidian",
   description: "A VitePress Site",
+  base: '/vitepress-obsidian/',
   lastUpdated: true,
   markdown: {
     breaks: true,
