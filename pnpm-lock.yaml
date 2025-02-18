@@ -8,9 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@gardeners/markdown-it-wikilinks':
+        specifier: ^1.5.1
+        version: 1.5.1
       markdown-it-obsidian:
         specifier: ^1.1.0
         version: 1.1.0
+      markdown-it-wikilinks:
+        specifier: ^1.4.0
+        version: 1.4.0
     devDependencies:
       '@types/node':
         specifier: ^22.13.4
@@ -270,6 +276,9 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+
+  '@gardeners/markdown-it-wikilinks@1.5.1':
+    resolution: {integrity: sha512-8X3w6/G9mvhOnzmUJZu8sH1bkBC1+CGmi5DgisSl+uyYBdUmdKM+d5wgQISWVPRbDPTFDWndESUizDfrsXuzwQ==}
 
   '@iconify-json/simple-icons@1.2.24':
     resolution: {integrity: sha512-06ZWXZx3PHCE+02zn+iIGOKKNgE3kyPd0Yh7IUEIa0bCYI6UmGlsYYghRx8As9TnTNYMCEiy5V0zI4Jb6EY6XA==}
@@ -611,6 +620,9 @@ packages:
   markdown-it-regexp@0.4.0:
     resolution: {integrity: sha512-0XQmr46K/rMKnI93Y3CLXsHj4jIioRETTAiVnJnjrZCEkGaDOmUxTbZj/aZ17G5NlRcVpWBYjqpwSlQ9lj+Kxw==}
 
+  markdown-it-wikilinks@1.4.0:
+    resolution: {integrity: sha512-LJhRWett3Do9doMMkpodOV5pvAMZjOOODqcifPfd+jdobhdg3UY8i824L5657UBWx7HSbOqicwNUzcVjOiswgw==}
+
   mdast-util-to-hast@13.2.0:
     resolution: {integrity: sha512-QGYKEuUsYT9ykKBCMOEDLsU5JRObWQusAolFMeko/tYPufNkRffBAQjIE+99jbA87xv6FgmjLtwjh9wBWajwAA==}
 
@@ -659,6 +671,10 @@ packages:
   property-information@6.5.0:
     resolution: {integrity: sha512-PgTgs/BlvHxOu8QuEN7wi5A0OmXaBcHpmCSTehcs6Uuu9IkDIEo13Hy7n898RHfrQ49vKCoGeWZSaAK01nwVig==}
 
+  punycode@2.3.1:
+    resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
+    engines: {node: '>=6'}
+
   regex-recursion@6.0.2:
     resolution: {integrity: sha512-0YCaSCq2VRIebiaUviZNs0cBz1kg5kVS2UKUfNIx8YVs1cN3AV7NTctO5FOKBA+UT2BPJIWZauYHPqJODG50cg==}
 
@@ -667,6 +683,10 @@ packages:
 
   regex@6.0.1:
     resolution: {integrity: sha512-uorlqlzAKjKQZ5P+kTJr3eeJGSVroLKoHmquUj4zHWuR+hEyNqlXsSKlYYF5F4NI6nl7tWCs0apKJ0lmfsXAPA==}
+
+  reurl@https://codeload.github.com/jsepia/reurl/tar.gz/a3210117636c115fb139517fcfb2ea929025cded:
+    resolution: {tarball: https://codeload.github.com/jsepia/reurl/tar.gz/a3210117636c115fb139517fcfb2ea929025cded}
+    version: 1.0.0-rc.2
 
   rfdc@1.4.1:
     resolution: {integrity: sha512-q1b3N5QkRUWUl7iyylaaj3kOpIT0N2i9MqIEQXP73GVsN9cw3fdx8X63cEmWhJGi2PPCF23Ijp7ktmd39rawIA==}
@@ -695,6 +715,9 @@ packages:
   speakingurl@14.0.1:
     resolution: {integrity: sha512-1POYv7uv2gXoyGFpBCmpDVSNV74IfsWlDW216UPjbWufNf+bSU6GdbDsxdcxtfwb4xlI3yxzOTKClUosxARYrQ==}
     engines: {node: '>=0.10.0'}
+
+  spec-url@2.0.0-dev.1:
+    resolution: {integrity: sha512-NKE2wT6tsvYa4xfVFcnjxSDFJwDOwU1NU2NhfnxFksutZrOShZ2p7pgQWS98Evq0cHMGBBjGQlbwrcAHLDywfw==}
 
   stringify-entities@4.0.4:
     resolution: {integrity: sha512-IwfBptatlO+QCJUo19AqvrPNqlVMpW9YEL2LIVY+Rpv2qsjCGxaDLNRgeGsQWJhfItebuJhsGSLjaBbNSQ+ieg==}
@@ -1005,6 +1028,12 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.5':
     optional: true
+
+  '@gardeners/markdown-it-wikilinks@1.5.1':
+    dependencies:
+      extend: 3.0.2
+      markdown-it-regexp: 0.4.0
+      sanitize-filename: 1.6.3
 
   '@iconify-json/simple-icons@1.2.24':
     dependencies:
@@ -1361,6 +1390,13 @@ snapshots:
 
   markdown-it-regexp@0.4.0: {}
 
+  markdown-it-wikilinks@1.4.0:
+    dependencies:
+      extend: 3.0.2
+      markdown-it-regexp: 0.4.0
+      reurl: https://codeload.github.com/jsepia/reurl/tar.gz/a3210117636c115fb139517fcfb2ea929025cded
+      sanitize-filename: 1.6.3
+
   mdast-util-to-hast@13.2.0:
     dependencies:
       '@types/hast': 3.0.4
@@ -1416,6 +1452,8 @@ snapshots:
 
   property-information@6.5.0: {}
 
+  punycode@2.3.1: {}
+
   regex-recursion@6.0.2:
     dependencies:
       regex-utilities: 2.3.0
@@ -1425,6 +1463,10 @@ snapshots:
   regex@6.0.1:
     dependencies:
       regex-utilities: 2.3.0
+
+  reurl@https://codeload.github.com/jsepia/reurl/tar.gz/a3210117636c115fb139517fcfb2ea929025cded:
+    dependencies:
+      spec-url: 2.0.0-dev.1
 
   rfdc@1.4.1: {}
 
@@ -1475,6 +1517,10 @@ snapshots:
   space-separated-tokens@2.0.2: {}
 
   speakingurl@14.0.1: {}
+
+  spec-url@2.0.0-dev.1:
+    dependencies:
+      punycode: 2.3.1
 
   stringify-entities@4.0.4:
     dependencies:
