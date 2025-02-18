@@ -14,9 +14,11 @@ export default defineConfig({
   markdown: {
     breaks: true,
     config(md) {
-      md.use(obsidian({
-        baseUrl,
-      }))
+      md.use(obsidian())
+      // md.use(obsidian({
+      //   baseURL: baseUrl,
+      //   relativeBaseURL: `.${baseUrl}`,
+      // }))
     },
   },
   themeConfig: {
@@ -59,13 +61,11 @@ function getSidebarItems(dir: string) {
           items: getSidebarItems(filePath)
         }
       }
-
-      // vitepress base setting seems to be only for .md files
-      // for other file types (like .png), we need to set the base path manually
-      const basePath = /\.md$/.test(file) ? '/' : baseUrl
-      return {
-        text: file.replace(/\.md$/, ''),
-        link: `${basePath}${filePath.replace(/\.md$/, '')}`
+      else if (/\.md$/.test(file)) {
+        return {
+          text: file.replace(/\.md$/, ''),
+          link: `/${filePath.replace(/\.md$/, '')}`
+        }
       }
     })
 }
