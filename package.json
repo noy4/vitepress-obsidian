@@ -18,10 +18,5 @@
     "vite": "^6.1.1",
     "vite-plugin-inspect": "^10.2.1",
     "vitepress": "2.0.0-alpha.2"
-  },
-  "dependencies": {
-    "@gardeners/markdown-it-wikilinks": "^1.5.1",
-    "markdown-it-obsidian": "^1.1.0",
-    "markdown-it-wikilinks": "^1.4.0"
   }
 }

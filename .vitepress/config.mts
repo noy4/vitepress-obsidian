@@ -1,7 +1,4 @@
 import { defineConfig } from 'vitepress'
-import obsidian from 'markdown-it-obsidian'
-import wikilinks from '@gardeners/markdown-it-wikilinks'
-// import wikilinks from 'markdown-it-wikilinks'
 import fs from 'fs'
 import path from 'path'
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
@@ -18,17 +15,6 @@ export default defineConfig({
     breaks: true,
     config(md) {
       md.use(BiDirectionalLinks())
-      // md.use(wikilinks({
-      //   // relativeBaseURL: baseUrl,
-      //   // makeAllLinksAbsolute: true,
-      //   imagePattern: /!\[\[([^]+?)\]\]/,
-      //   assetPrefix: "/assets/",
-      // }))
-      // md.use(obsidian())
-      // md.use(obsidian({
-      //   baseURL: baseUrl,
-      //   relativeBaseURL: `.${baseUrl}`,
-      // }))
     },
   },
   themeConfig: {
