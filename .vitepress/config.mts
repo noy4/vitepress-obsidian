@@ -4,6 +4,7 @@ import wikilinks from '@gardeners/markdown-it-wikilinks'
 // import wikilinks from 'markdown-it-wikilinks'
 import fs from 'fs'
 import path from 'path'
+import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
 
 const baseUrl = '/vitepress-obsidian/'
 
@@ -16,12 +17,13 @@ export default defineConfig({
   markdown: {
     breaks: true,
     config(md) {
-      md.use(wikilinks({
-        // relativeBaseURL: baseUrl,
-        // makeAllLinksAbsolute: true,
-        imagePattern: /!\[\[([^]+?)\]\]/,
-        assetPrefix: "/assets/",
-      }))
+      md.use(BiDirectionalLinks())
+      // md.use(wikilinks({
+      //   // relativeBaseURL: baseUrl,
+      //   // makeAllLinksAbsolute: true,
+      //   imagePattern: /!\[\[([^]+?)\]\]/,
+      //   assetPrefix: "/assets/",
+      // }))
       // md.use(obsidian())
       // md.use(obsidian({
       //   baseURL: baseUrl,
