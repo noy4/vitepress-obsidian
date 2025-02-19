@@ -1,20 +1,23 @@
 {
   "name": "vitepress-obsidian",
-  "version": "1.0.0",
   "type": "module",
+  "version": "1.0.0",
   "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "index.js",
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "lint:fix": "eslint . --fix"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
+    "@antfu/eslint-config": "^4.3.0",
     "@nolebase/markdown-it-bi-directional-links": "^2.14.0",
     "@types/node": "^22.13.4",
+    "eslint": "^9.20.1",
     "vite": "^6.1.1",
     "vite-plugin-inspect": "^10.2.1",
     "vitepress": "2.0.0-alpha.2"
