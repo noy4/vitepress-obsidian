@@ -2,11 +2,16 @@ import { defineConfig } from 'vitepress'
 import fs from 'fs'
 import path from 'path'
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
+import Inspect from 'vite-plugin-inspect'
 
 const baseUrl = '/vitepress-obsidian/'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  vite: {
+    plugins: [Inspect()],
+  },
+
   title: "Vitepress Obsidian",
   description: "A VitePress Site",
   base: baseUrl,
