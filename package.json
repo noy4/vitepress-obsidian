@@ -14,7 +14,9 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.13.4",
-    "vitepress": "^1.6.3"
+    "vite": "^6.1.1",
+    "vite-plugin-inspect": "^10.2.1",
+    "vitepress": "2.0.0-alpha.2"
   },
   "dependencies": {
     "@gardeners/markdown-it-wikilinks": "^1.5.1",
