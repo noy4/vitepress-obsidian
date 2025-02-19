@@ -1,8 +1,8 @@
-import { defineConfig } from 'vitepress'
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
 import Inspect from 'vite-plugin-inspect'
+import { defineConfig } from 'vitepress'
 
 const baseUrl = '/vitepress-obsidian/'
 
@@ -12,8 +12,8 @@ export default defineConfig({
     plugins: [Inspect()],
   },
 
-  title: "Vitepress Obsidian",
-  description: "A VitePress Site",
+  title: 'Vitepress Obsidian',
+  description: 'A VitePress Site',
   base: baseUrl,
   lastUpdated: true,
   markdown: {
@@ -26,7 +26,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Examples', link: '/markdown-examples' },
     ],
 
     sidebar: [
@@ -38,35 +38,36 @@ export default defineConfig({
           {
             text: 'notes',
             collapsed: false,
-            items: getSidebarItems('notes')
+            items: getSidebarItems('notes'),
           },
-        ]
-      }
+        ],
+      },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
-  }
+      { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+    ],
+  },
 })
 
 function getSidebarItems(dir: string) {
   return fs.readdirSync(dir)
     .filter(file => !file.startsWith('.'))
-    .map(file => {
+    .map((file) => {
       const filePath = path.join(dir, file)
       if (fs.statSync(filePath).isDirectory()) {
         return {
           text: file,
           collapsed: true,
-          items: getSidebarItems(filePath)
+          items: getSidebarItems(filePath),
         }
       }
       else if (/\.md$/.test(file)) {
         return {
           text: file.replace(/\.md$/, ''),
-          link: `/${filePath.replace(/\.md$/, '')}`
+          link: `/${filePath.replace(/\.md$/, '')}`,
         }
       }
+      return undefined
     })
 }
